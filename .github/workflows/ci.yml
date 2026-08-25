@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
 
       # Bun installs and runs scripts; Node is still the runtime the scripts
       # execute on (next, vitest, and the type-stripped CLI all need Node 24).
