@@ -244,6 +244,14 @@ tsdown configs therefore never `clean` in watch mode and `ignoreWatch` `.turbo/`
 turbo log write triggers a rebuild that empties `dist/` while a consumer is importing it
 (`ERR_MODULE_NOT_FOUND` on `pixtro/dist/index.js`). Keep both settings if you touch those configs.
 
+**`apps/web`'s `typecheck` runs `next typegen` first, and must.** `PageProps<'/'>` and
+`LayoutProps<'/'>` are globals Next *generates* into `.next/types/`, which `tsconfig.json`
+includes. A working tree that has ever run `next dev` or `next build` has them, so a bare
+`tsc --noEmit` passes locally and then fails in CI with `TS2304: Cannot find name 'LayoutProps'`
+— CI checks out clean and typechecks before it builds. `next typegen` writes those types without
+a full build. Don't drop it from the script, and don't "fix" a future TS2304 by hand-typing the
+props: the generated globals are what make route strings typed.
+
 **`apps/web/AGENTS.md` and `apps/web/CLAUDE.md` are generated** and re-added by `next dev` on every
 run. Commit them with your work or they will keep reappearing as uncommitted changes.
 
