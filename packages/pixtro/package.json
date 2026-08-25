@@ -54,7 +54,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "fast-png": "^6.2.0",
+    "fast-png": "^8.0.0",
     "gifenc": "^1.0.3"
   },
   "devDependencies": {
