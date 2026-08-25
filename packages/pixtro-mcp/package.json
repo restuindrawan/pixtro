@@ -1,0 +1,62 @@
+{
+  "name": "pixtro-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for pixtro — let an agent generate pixel mascots and author their animations.",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "pixel-art",
+    "mascot",
+    "agent",
+    "claude"
+  ],
+  "license": "MIT",
+  "author": "restuindrawan",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/restuindrawan/pixtro.git",
+    "directory": "packages/pixtro-mcp"
+  },
+  "homepage": "https://github.com/restuindrawan/pixtro#readme",
+  "bugs": "https://github.com/restuindrawan/pixtro/issues",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/server.d.ts",
+      "default": "./dist/server.js"
+    },
+    "./tools": {
+      "types": "./dist/tools.d.ts",
+      "default": "./dist/tools.js"
+    }
+  },
+  "bin": {
+    "pixtro-mcp": "./dist/server.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "start": "node src/server.ts",
+    "build": "tsdown",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "^2.0.0",
+    "pixtro": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

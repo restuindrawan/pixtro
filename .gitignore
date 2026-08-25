@@ -1,0 +1,37 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# caches
+.turbo/
+coverage/
+*.log
+
+# environment
+.env
+.env.*
+!.env.example
+
+# publishing
+# `npm pack` leaves a tarball beside the package it packed.
+*.tgz
+.vercel/
+
+# CLI output
+# The README and CONTRIBUTING both tell you to run `cli sheet -o sheet.png` and
+# `cli anim ... -o wake.gif`, which land in whatever directory you ran them
+# from. Anchored to the root so a deliberate asset under docs/ still commits.
+/*.png
+/*.gif
+
+# os / editor
+.DS_Store
+Thumbs.db
+.idea/
+.claude/settings.local.json

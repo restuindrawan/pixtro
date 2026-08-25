@@ -1,0 +1,46 @@
+{
+  "_comment": [
+    "An example storyboard. Render it with:",
+    "  pixtro anim dwi-01 --story ./examples/my-story.json -o out.gif",
+    "",
+    "Get a built-in as a starting point with:",
+    "  pixtro anim dwi-01 --story wake --save-story mine.json",
+    "",
+    "Beats play in order. Tracks inside a beat run in parallel.",
+    "Targets: all (the whole sprite), body, eyes, mouth, accessory.",
+    "Keyframes hold their pose until the next one; \"ease\": \"linear\" slides instead."
+  ],
+  "beats": [
+    {
+      "duration": 700,
+      "tracks": {
+        "all": [
+          { "at": 0, "dy": 34 },
+          { "at": 500, "dy": 0, "ease": "linear" },
+          { "at": 600, "dy": -3 },
+          { "at": 660, "dy": 0 }
+        ]
+      }
+    },
+    {
+      "duration": 900,
+      "tracks": {
+        "eyes": [
+          { "at": 0, "dx": 0 },
+          { "at": 150, "dx": -2 },
+          { "at": 450, "dx": 2 },
+          { "at": 750, "dx": 0 }
+        ],
+        "accessory": [
+          { "at": 0, "dy": 0 },
+          { "at": 150, "dy": -1 },
+          { "at": 450, "dy": 1 },
+          { "at": 750, "dy": 0 }
+        ]
+      }
+    },
+    { "clips": ["bounce"], "repeat": 2 },
+    { "clips": ["bob", "blinkTwice"], "hold": 400 }
+  ],
+  "loop": true
+}
